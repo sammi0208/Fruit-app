@@ -9,21 +9,23 @@
 /* Begin PBXBuildFile section */
 		4EEB5169254BB5D50076BE4F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EEB5168254BB5D50076BE4F /* AppDelegate.swift */; };
 		4EEB516B254BB5D50076BE4F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EEB516A254BB5D50076BE4F /* SceneDelegate.swift */; };
-		4EEB516D254BB5D50076BE4F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EEB516C254BB5D50076BE4F /* ViewController.swift */; };
 		4EEB5170254BB5D50076BE4F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4EEB516E254BB5D50076BE4F /* Main.storyboard */; };
 		4EEB5172254BB5D50076BE4F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4EEB5171254BB5D50076BE4F /* Assets.xcassets */; };
 		4EEB5175254BB5D50076BE4F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4EEB5173254BB5D50076BE4F /* LaunchScreen.storyboard */; };
+		4EEB517D254BB63F0076BE4F /* FruitViewControllerTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EEB517C254BB63F0076BE4F /* FruitViewControllerTableViewController.swift */; };
+		4EEB517F254BBD6C0076BE4F /* FruitTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EEB517E254BBD6C0076BE4F /* FruitTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		4EEB5165254BB5D50076BE4F /* Fruit app.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Fruit app.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4EEB5168254BB5D50076BE4F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4EEB516A254BB5D50076BE4F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		4EEB516C254BB5D50076BE4F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		4EEB516F254BB5D50076BE4F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		4EEB5171254BB5D50076BE4F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4EEB5174254BB5D50076BE4F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4EEB5176254BB5D50076BE4F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4EEB517C254BB63F0076BE4F /* FruitViewControllerTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FruitViewControllerTableViewController.swift; sourceTree = "<group>"; };
+		4EEB517E254BBD6C0076BE4F /* FruitTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FruitTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,11 +60,12 @@
 			children = (
 				4EEB5168254BB5D50076BE4F /* AppDelegate.swift */,
 				4EEB516A254BB5D50076BE4F /* SceneDelegate.swift */,
-				4EEB516C254BB5D50076BE4F /* ViewController.swift */,
 				4EEB516E254BB5D50076BE4F /* Main.storyboard */,
 				4EEB5171254BB5D50076BE4F /* Assets.xcassets */,
 				4EEB5173254BB5D50076BE4F /* LaunchScreen.storyboard */,
 				4EEB5176254BB5D50076BE4F /* Info.plist */,
+				4EEB517C254BB63F0076BE4F /* FruitViewControllerTableViewController.swift */,
+				4EEB517E254BBD6C0076BE4F /* FruitTableViewCell.swift */,
 			);
 			path = "Fruit app";
 			sourceTree = "<group>";
@@ -138,9 +141,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4EEB516D254BB5D50076BE4F /* ViewController.swift in Sources */,
+				4EEB517F254BBD6C0076BE4F /* FruitTableViewCell.swift in Sources */,
 				4EEB5169254BB5D50076BE4F /* AppDelegate.swift in Sources */,
 				4EEB516B254BB5D50076BE4F /* SceneDelegate.swift in Sources */,
+				4EEB517D254BB63F0076BE4F /* FruitViewControllerTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
