@@ -10,8 +10,10 @@ import UIKit
 
 class FruitViewControllerTableViewController: UITableViewController {
     
+    @IBOutlet var myLabel : UILabel?
+    
     var fruits = ["watermelon","apple","orange","strawberry","pear"]
-    var price = ["500","100","90","200","150"]
+    var price = [500,100,90,200,150]
     
     var fruitIsVisited = Array(repeating: false, count: 5)
 
@@ -34,8 +36,7 @@ class FruitViewControllerTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! FruitTableViewCell
         // Configure the cell...
         cell.nameLabel?.text = fruits[indexPath.row]
-        cell.priceLabel?.text = price[indexPath.row]
-        
+        cell.priceLabel?.text = String(price[indexPath.row])
         if fruitIsVisited[indexPath.row] {
         cell.accessoryType = .checkmark
         } else {
@@ -47,50 +48,42 @@ class FruitViewControllerTableViewController: UITableViewController {
     }
     
         override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        // Create an option menu as an action sheet
-        let optionMenu = UIAlertController(title: nil, message: "Do you want to choose this one?", preferredStyle: .actionSheet)
         
-        //要在ipad使用就要加這段程式碼
-        if let popoverController = optionMenu.popoverPresentationController {
-            if let cell = tableView.cellForRow(at: indexPath) {
-                popoverController.sourceView = cell
-                popoverController.sourceRect = cell.bounds
+        let cell = tableView.cellForRow(at: indexPath)
+        fruitIsVisited[indexPath.row] = !fruitIsVisited[indexPath.row]
+        cell?.accessoryType = fruitIsVisited[indexPath.row] ? .checkmark : .none
+            
+        var totalPrice = 0
+            for i in 0...(fruits.count-1){
+                if fruitIsVisited[i]{
+                    totalPrice += price[i]
+                }
             }
-        }
+            myLabel?.text = "Total price = " + String(totalPrice)
         
         
-        // Check-in action
-        let checkInAction = UIAlertAction(title: "YES", style: .default, handler: {
-            (action:UIAlertAction!) -> Void in
-
-            let cell = tableView.cellForRow(at: indexPath)
-            cell?.accessoryType = .checkmark
-            self.fruitIsVisited[indexPath.row] = true
-        })
-        optionMenu.addAction(checkInAction)
-        
-        //Add undo check-in action
-        let uncheckInAction = UIAlertAction(title: "NO", style: .default, handler: {
-            (action:UIAlertAction!) -> Void in
-
-            let cell = tableView.cellForRow(at: indexPath)
-            if self.fruitIsVisited[indexPath.row] {
-                cell?.accessoryType = .none
-                self.fruitIsVisited[indexPath.row] = false
-            }
-        })
-        optionMenu.addAction(uncheckInAction)
-        
-        // Add actions to the menu
-        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
-        optionMenu.addAction(cancelAction)
-
-        // Display the menu
-        present(optionMenu, animated: true, completion: nil)
-        
-        // Deselect a row 灰底部分選了馬上消失
-        tableView.deselectRow(at: indexPath, animated: false)
     }
+    
+    override func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+               
+       let checkInAction = UIContextualAction(style: .normal, title: "Check-in") { (action, sourceView, completionHandler) in
+                   
+       let cell = tableView.cellForRow(at: indexPath) as! FruitTableViewCell
+       self.fruitIsVisited[indexPath.row] = (self.fruitIsVisited[indexPath.row]) ? false : true
+       cell.accessoryType = self.fruitIsVisited[indexPath.row] ? .checkmark : .none
+                   
+       completionHandler(true)
+       }
+               
+       let checkInIcon = fruitIsVisited[indexPath.row] ? "arrow.uturn.left" : "checkmark"
+       checkInAction.backgroundColor = UIColor(red: 38.0/255.0, green: 162.0/255.0, blue: 78.0/255.0, alpha: 1.0)
+       checkInAction.image = UIImage(systemName: checkInIcon)
+               
+       let swipeConfiguration = UISwipeActionsConfiguration(actions: [checkInAction])
+             
+               
+       return swipeConfiguration
+       }
 
     /*
     // Override to support conditional editing of the table view.
